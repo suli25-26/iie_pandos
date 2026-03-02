@@ -19,7 +19,9 @@ public class DataSource {
         """;
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
-
+            ps.setString(1, product.name);
+            ps.setInt(2, product.price);
+            ps.execute();
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
