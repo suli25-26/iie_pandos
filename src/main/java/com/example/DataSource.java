@@ -25,6 +25,7 @@ public class DataSource {
             ps.setString(1, product.name);
             ps.setInt(2, product.price);
             ps.execute();
+            conn.close();
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
@@ -43,6 +44,7 @@ public class DataSource {
                 product.price = rs.getInt("price");
                 productList.add(product);
             }
+            conn.close();
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
